@@ -1,0 +1,3 @@
+SELECT 
+NewsPostID
+FROM main_NewsFeedReadConfirmation WHERE ConfirmedByEmployeeID = {{Select_Employee.data[0].IDEmployee}}

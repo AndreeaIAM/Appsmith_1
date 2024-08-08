@@ -1,0 +1,4 @@
+SELECT 
+  IDLocationType
+, LocationType
+FROM dbo.nomom_LocationType

@@ -1,0 +1,20 @@
+{
+  "gitSyncId": "667aa17abcfb414bef9929c8_668f70bc3cc3f71912ad4572",
+  "id": "sumarfeed_JSObject1",
+  "unpublishedCollection": {
+    "name": "JSObject1",
+    "pageId": "sumarfeed",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "variables": [
+      {
+        "name": "myVar1",
+        "value": "[]"
+      },
+      {
+        "name": "myVar2",
+        "value": "{}"
+      }
+    ]
+  }
+}

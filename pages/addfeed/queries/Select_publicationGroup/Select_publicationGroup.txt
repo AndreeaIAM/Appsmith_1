@@ -1,0 +1,5 @@
+SELECT 
+  IDFeedGroup
+, GroupName
+, GroupCode
+FROM dbo.nom_NewsFeedGroup

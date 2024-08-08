@@ -1,0 +1,5 @@
+{
+OriginalName: "{{FotoPicker.files[0].name}}",
+AttachmentTypeID: 21,
+Content: {{FotoPicker.files[0].data.substring(FotoPicker.files[0].data.indexOf("base64,")+7)}}
+}

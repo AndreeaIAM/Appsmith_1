@@ -1,0 +1,7 @@
+SELECT 
+  IDPostType
+, PostTypeName
+FROM dbo.nom_NewsFeedPostType
+where IDPostType != 	case when '{{Get_Permissions.data.map(a=>a.PermissionKey).includes(21000)}}' = 'false' then 2  end 
+or IDPostType !=
+		case when '{{Get_Permissions.data.map(a=>a.PermissionKey).includes(21100)}}' = 'false' then 1 end

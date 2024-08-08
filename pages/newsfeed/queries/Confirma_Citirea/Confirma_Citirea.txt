@@ -1,0 +1,2 @@
+INSERT INTO main_NewsFeedReadConfirmation(NewsPostID, ConfirmedByEmployeeID, Timestamp)
+VALUES ({{PostList.triggeredItem.IDNewsFeedPost}}, {{Select_Employee.data[0].IDEmployee}}, GETDATE())

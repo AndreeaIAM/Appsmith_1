@@ -1,0 +1,11 @@
+EXEC Insert_NewsFeedPost
+    {{TipNotificare.selectedOptionValue}}
+	, {{Select_Employee.data[0].IDEmployee}}	
+	, 1
+	, {{TextContent.text.substring(0,500)}}
+	, {{InputTitlu.text}}
+	, {{TextContent.text}}
+	, {{AddFileAttachment.data.AttachmentID != undefined? AddFileAttachment.data.AttachmentID : 0}}
+	, {{AddFotoAttachment.data.AttachmentID!= undefined?AddFotoAttachment.data.AttachmentID:0}}
+  , {{LocationType.selectedOptionValues.length === Select_LocationType.data.length? "0" : LocationType.selectedOptionValues.toString()}}
+	, {{Location.selectedOptionValues.length === Select_Location.data.length? "0" : Location.selectedOptionValues.toString()}}

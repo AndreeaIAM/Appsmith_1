@@ -1,0 +1,179 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 6,
+  "boxShadow": "none",
+  "buttonVariant": "PRIMARY",
+  "childStylesheet": {
+    "button": {
+      "buttonColor": "{{appsmith.theme.colors.primaryColor}}"
+    }
+  },
+  "displayName": "Button Group",
+  "dynamicBindingPathList": [
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "groupButtons.groupButton1.label"
+    },
+    {
+      "key": "groupButtons.groupButtong34yp1ilsk.buttonColor"
+    },
+    {
+      "key": "groupButtons.groupButton2.label"
+    },
+    {
+      "key": "groupButtons.groupButton3.label"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "groupButtons.groupButton3.iconName"
+    },
+    {
+      "key": "groupButtons.groupButton1.onClick"
+    },
+    {
+      "key": "groupButtons.groupButtong34yp1ilsk.onClick"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "groupButtons.groupButtong34yp1ilsk.onClick"
+    },
+    {
+      "key": "groupButtons.groupButton1.onClick"
+    },
+    {
+      "key": "groupButtons.groupButton2.onClick"
+    },
+    {
+      "key": "groupButtons.groupButton3.onClick"
+    }
+  ],
+  "groupButtons": {
+    "groupButton1": {
+      "buttonColor": "#0096d6",
+      "buttonType": "SIMPLE",
+      "iconName": "calculator",
+      "id": "groupButton1",
+      "index": 1,
+      "isDisabled": false,
+      "isVisible": true,
+      "label": "Platforma({{ _.sumBy(SelectNewsFeedType.data.filter(p => p.PostTypeName.toString().includes('suport')), 'numar_postari')}})",
+      "menuItems": {},
+      "onClick": "{{storeValue('paramFilter', 'platforma').then(() => {\n  SelectNewsFeed.run();\n});}}",
+      "placement": "CENTER",
+      "widgetId": ""
+    },
+    "groupButton2": {
+      "buttonColor": "#0096d6",
+      "buttonType": "SIMPLE",
+      "iconName": "warning-sign",
+      "id": "groupButton2",
+      "index": 2,
+      "isDisabled": false,
+      "isVisible": true,
+      "label": "Important({{ _.sumBy(SelectNewsFeedType.data.filter(p => p.PostTypeName.toString().includes('confirmare')), 'numar_postari')}})",
+      "menuItems": {},
+      "onClick": "{{storeValue('paramFilter', 'important').then(() => {\n  SelectNewsFeed.run();\n});}}",
+      "placement": "CENTER",
+      "widgetId": ""
+    },
+    "groupButton3": {
+      "buttonColor": "#0096d6",
+      "buttonType": "SIMPLE",
+      "iconName": "chat",
+      "id": "groupButton3",
+      "index": 3,
+      "isDisabled": false,
+      "isVisible": true,
+      "label": "Stiri({{ _.sumBy(SelectNewsFeedType.data.filter(p => p.PostTypeName.toString().includes('generic'|| 'postare')), 'numar_postari')}})",
+      "menuItems": {
+        "menuItem1": {
+          "backgroundColor": "#FFFFFF",
+          "id": "menuItem1",
+          "index": 0,
+          "isDisabled": false,
+          "isVisible": true,
+          "label": "First Option",
+          "onClick": "",
+          "widgetId": ""
+        },
+        "menuItem2": {
+          "backgroundColor": "#FFFFFF",
+          "id": "menuItem2",
+          "index": 1,
+          "isDisabled": false,
+          "isVisible": true,
+          "label": "Second Option",
+          "onClick": "",
+          "widgetId": ""
+        },
+        "menuItem3": {
+          "backgroundColor": "#DD4B34",
+          "iconAlign": "right",
+          "iconColor": "#FFFFFF",
+          "iconName": "trash",
+          "id": "menuItem3",
+          "index": 2,
+          "isDisabled": false,
+          "isVisible": true,
+          "label": "Delete",
+          "onClick": "",
+          "textColor": "#FFFFFF",
+          "widgetId": ""
+        }
+      },
+      "onClick": "{{storeValue('paramFilter', 'stiri').then(() => {\n  SelectNewsFeed.run();\n});}}",
+      "placement": "CENTER",
+      "widgetId": ""
+    },
+    "groupButtong34yp1ilsk": {
+      "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+      "buttonType": "SIMPLE",
+      "id": "groupButtong34yp1ilsk",
+      "index": 0,
+      "isDisabled": false,
+      "isVisible": true,
+      "label": "Toate",
+      "menuItems": {},
+      "onClick": "{{storeValue('paramFilter', 'toate').then(() => {\n  SelectNewsFeed.run();\n});}}",
+      "placement": "CENTER",
+      "widgetId": "r3l6lnfne0"
+    }
+  },
+  "hideCard": false,
+  "iconSVG": "/static/media/icon.bb8db4853027d74a78963c3375841e4b.svg",
+  "isCanvas": false,
+  "isDeprecated": false,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "y2fxhpoa3b",
+  "leftColumn": 0,
+  "minWidth": 450,
+  "mobileBottomRow": 128,
+  "mobileLeftColumn": 4,
+  "mobileRightColumn": 28,
+  "mobileTopRow": 124,
+  "orientation": "horizontal",
+  "parentColumnSpace": 12.3125,
+  "parentId": "enw6pe9tjk",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 47,
+  "searchTags": [
+    "click",
+    "submit"
+  ],
+  "tags": [
+    "Buttons"
+  ],
+  "topRow": 2,
+  "type": "BUTTON_GROUP_WIDGET",
+  "version": 1,
+  "widgetId": "jf9w3lj80r",
+  "widgetName": "ButtonGroup1"
+}

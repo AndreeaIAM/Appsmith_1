@@ -1,0 +1,57 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 83,
+  "boxShadow": "none",
+  "buttonColor": "#00abd6",
+  "buttonVariant": "PRIMARY",
+  "disabledWhenInvalid": false,
+  "displayName": "Button",
+  "dynamicBindingPathList": [
+    {
+      "key": "borderRadius"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "hideCard": false,
+  "iconSVG": "/static/media/icon.05d209fafeb13a8569e3b4e97069d9ee.svg",
+  "isDefaultClickDisabled": true,
+  "isDeprecated": false,
+  "isDisabled": false,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "7dheqpff90",
+  "leftColumn": 47,
+  "minWidth": 120,
+  "mobileBottomRow": 63,
+  "mobileLeftColumn": 47,
+  "mobileRightColumn": 63,
+  "mobileTopRow": 59,
+  "onClick": "{{Insert_NewsFeedPost.run().then(() => {\n  showAlert('Postat', 'success');\n  resetWidget(\"Tabs1\", true);\n}).catch(() => {\n  showAlert('Eroare la introducere postare! ' + Insert_NewsFeedPost.data, 'error');\n});}}",
+  "parentColumnSpace": 12,
+  "parentId": "dnmgbvedbu",
+  "parentRowSpace": 10,
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 63,
+  "searchTags": [
+    "click",
+    "submit"
+  ],
+  "tags": [
+    "Buttons"
+  ],
+  "text": "Postează!",
+  "topRow": 79,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "rm6p34ybzt",
+  "widgetName": "Button1"
+}

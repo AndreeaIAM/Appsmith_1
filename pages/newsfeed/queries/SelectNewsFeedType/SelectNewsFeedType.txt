@@ -1,0 +1,19 @@
+select 
+_postType.PostTypeName
+, COUNT(_post.NewsFeedTypeID) as numar_postari
+from main_NewsFeedPost _post
+inner join nom_NewsFeedPostType _postType on _post.NewsFeedTypeID = _postType.IDPostType
+where _post.Hidden = 0
+and _post.Timestamp > DATEADD(DAY, -1, GETDATE())
+and _post.IDNewsFeedPost in(select distinct
+Case when ISNULL(_newsLocation.LocationID, 0) = 0 and ISNULL(_newsLocation.LocationTypeID, 0) = 0 then _newsLocation.NewsFeedPostID 
+when ISNULL(_newsLocation.LocationID, 0) != 0 and ISNULL( _location.IDLocation,0) != 0 then _newsLocation.NewsFeedPostID
+when ISNULL(_newsLocation.LocationTypeID, 0) != 0 and ISNULL( _locationType.IDLocation,0) != 0 then _newsLocation.NewsFeedPostID
+end as posts
+
+from main_NewsToLocations _newsLocation 
+left join main_Location _location on (_newsLocation.LocationID = _location.IDLocation and _location.IDLocation = {{appsmith.URL.queryParams.l}})
+left join main_Location _locationType on (_newsLocation.LocationTypeID= _locationType.LocationTypeID and _locationType.IDLocation = {{appsmith.URL.queryParams.l}})
+) 
+
+group by _postType.PostTypeName

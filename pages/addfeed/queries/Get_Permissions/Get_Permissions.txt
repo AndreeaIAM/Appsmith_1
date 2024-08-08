@@ -1,0 +1,1 @@
+EXECUTE  appsmith_CheckLoginPermissions {{appsmith.URL.queryParams.t}};

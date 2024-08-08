@@ -1,0 +1,5 @@
+SELECT 
+  IDLocation
+, LocationName
+FROM dbo.main_Location
+WHERE LocationTypeId  {{"in ("+Prepared_Statement.getFormattedSelectedOptions()+")"}}

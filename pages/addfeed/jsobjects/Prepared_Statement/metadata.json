@@ -1,0 +1,20 @@
+{
+  "gitSyncId": "667aa17abcfb414bef9929c8_667d191f47978e1564b40a05",
+  "id": "addfeed_Prepared_Statement",
+  "unpublishedCollection": {
+    "name": "Prepared_Statement",
+    "pageId": "addfeed",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "variables": [
+      {
+        "name": "myVar1",
+        "value": "[]"
+      },
+      {
+        "name": "myVar2",
+        "value": "{}"
+      }
+    ]
+  }
+}

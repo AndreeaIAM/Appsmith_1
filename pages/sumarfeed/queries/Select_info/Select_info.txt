@@ -1,0 +1,54 @@
+SELECT DISTINCT
+
+_newsPost.IDNewsFeedPost
+, _newsPost.Title
+, _newsPost.FullContent
+, _attachmentDoc.IdAttachment
+, _attachmentDoc.[FileName]
+, _attachmentFoto.IdAttachment
+, _attachmentFoto.[FileName]
+, _newsPostType.IDPostType
+, _newsPostType.PostTypeName
+, _newsPostType.Confirmation
+--, _newsToLocations.LocationID
+--, _newsToLocations.LocationTypeID
+--, case when ISNULL(_newsToLocations.LocationID, 0) = 0 and ISNULL(_newsToLocations.LocationTypeID, 0) = 0 then 'all'
+--else 'restrict'
+--end as 'IsForAll'
+FROM 
+ main_NewsFeedPost _newsPost
+INNER JOIN nom_NewsFeedPostType _newsPostType ON _newsPost.NewsFeedTypeID = _newsPostType.IDPostType
+left join 
+( 
+SELECT 
+    _newPost.IDNewsFeedPost,
+    MAX(CASE WHEN _document.AttachmentTypeID = 20 THEN _document.IdAttachment END) AS DocumentAttachment,
+    MAX(CASE WHEN _foto.AttachmentTypeID = 21 THEN _foto.IdAttachment END) AS FotoAttachment
+FROM 
+    main_NewsFeedPost _newPost
+LEFT JOIN 
+    main_AttachmentToNewsPost _newsAttachment ON _newPost.IDNewsFeedPost = _newsAttachment.NewsFeedPostID
+LEFT JOIN 
+    main_Attachment _document ON _document.IdAttachment = _newsAttachment.AttachmentID AND _document.AttachmentTypeID = 20
+LEFT JOIN 
+    main_Attachment _foto ON _foto.IdAttachment = _newsAttachment.AttachmentID AND _foto.AttachmentTypeID = 21
+GROUP BY 
+    _newPost.IDNewsFeedPost
+) _attachments on _newsPost.IDNewsFeedPost = _attachments.IDNewsFeedPost
+
+LEFT JOIN main_Attachment _attachmentDoc on _attachments.DocumentAttachment = _attachmentDoc.IdAttachment
+LEFT JOIN main_Attachment _attachmentFoto on _attachments.FotoAttachment = _attachmentFoto.IdAttachment
+inner join nom_NewsFeedPostType _postType on _newsPost.NewsFeedTypeID = _postType.IDPostType
+--inner join main_NewsToLocations _newsToLocations on _newsPost.IDNewsFeedPost = _newsToLocations.NewsFeedPostID
+WHERE
+_newsPost.Hidden = 0
+and _newsPost.IDNewsFeedPost in(select distinct
+Case when ISNULL(_newsLocation.LocationID, 0) = 0 and ISNULL(_newsLocation.LocationTypeID, 0) = 0 then _newsLocation.NewsFeedPostID 
+when ISNULL(_newsLocation.LocationID, 0) != 0 and ISNULL( _location.IDLocation,0) != 0 then _newsLocation.NewsFeedPostID
+when ISNULL(_newsLocation.LocationTypeID, 0) != 0 and ISNULL( _locationType.IDLocation,0) != 0 then _newsLocation.NewsFeedPostID
+end as posts
+
+from main_NewsToLocations _newsLocation 
+left join main_Location _location on (_newsLocation.LocationID = _location.IDLocation and _location.IDLocation = {{appsmith.URL.queryParams.l}})
+left join main_Location _locationType on (_newsLocation.LocationTypeID= _locationType.LocationTypeID and _locationType.IDLocation = {{appsmith.URL.queryParams.l}})
+)

@@ -1,0 +1,6 @@
+SELECT  
+e.FirstName + ' '+e.LastName as Agent
+, e.IDEmployee
+FROM auth_User u
+INNER JOIN main_Employee e ON u.IDUser = e.UserID
+WHERE u.IDToken = '{{appsmith.URL.queryParams.t}}'

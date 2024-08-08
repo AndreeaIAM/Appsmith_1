@@ -1,0 +1,20 @@
+{
+  "gitSyncId": "667aa17abcfb414bef9929c8_66853d903cc3f71912ad44b4",
+  "id": "newsfeed_JSObject1",
+  "unpublishedCollection": {
+    "name": "JSObject1",
+    "pageId": "newsfeed",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "variables": [
+      {
+        "name": "myVar1",
+        "value": "[]"
+      },
+      {
+        "name": "myVar2",
+        "value": "{}"
+      }
+    ]
+  }
+}
