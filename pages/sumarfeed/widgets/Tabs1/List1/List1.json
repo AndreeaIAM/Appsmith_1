@@ -118,7 +118,7 @@
   "renderMode": "CANVAS",
   "requiresFlatWidgetChildren": true,
   "responsiveBehavior": "fill",
-  "rightColumn": 61,
+  "rightColumn": 63,
   "selectedItemView": "{{{}}}",
   "tags": [
     "Suggested",
